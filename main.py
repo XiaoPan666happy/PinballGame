@@ -19,11 +19,25 @@ while running:
     
     ball_pos[0] += ball_move_direction[0]
     ball_pos[1] += ball_move_direction[1]
+    # 反弹
+    # 下方
+    if ball_pos[1]>SCREEN_H:
+        ball_move_direction[1] = -ball_move_direction[1]
+    # 右侧
+    elif ball_pos[0]>SCREEN_W:
+        ball_move_direction[0] = -ball_move_direction[0]
+    # 上方
+    elif ball_pos[1]<0:
+        ball_move_direction[1] = -ball_move_direction[1]
+    # 左侧
+    elif ball_pos[0]<0:
+        ball_move_direction[0] = -ball_move_direction[0]
 
     screen.fill((0, 0, 0))
     pygame.draw.circle(screen, (255, 255, 255), ball_pos, 10)
     pygame.display.flip()
 
     clock.tick(FPS)
+    print(ball_pos)
 
 pygame.quit()
