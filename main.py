@@ -5,6 +5,10 @@ from config import *
 import pygame
 
 pygame.init()
+pygame.font.init()
+
+font_big = pygame.font.SysFont("microsoftyahei", 128, bold=True)
+gameover_surface = font_big.render("GAMEOVER", True, (255, 255, 255))
 
 screen = pygame.display.set_mode((SCREEN_W, SCREEN_H))
 clock = pygame.time.Clock()
@@ -23,6 +27,8 @@ while running:
     
     if gameover:
         screen.fill((0, 0, 0))
+        screen.blit(gameover_surface, (SCREEN_W//2-gameover_surface.get_width()//2, 
+                                       SCREEN_H//2-gameover_surface.get_height()//2))
         pygame.display.flip()
     else:
         ball_pos[0] += ball_move_direction[0]*level
@@ -61,4 +67,5 @@ while running:
         clock.tick(FPS)
         # print(ball_pos)
 
+pygame.font.quit()
 pygame.quit()
