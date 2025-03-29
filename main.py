@@ -11,7 +11,7 @@ font_big = pygame.font.SysFont("microsoftyahei", 128, bold=True)
 font_small = pygame.font.SysFont("microsoftyahei", 32, bold=True)
 gameover_surface = font_big.render("GAMEOVER", True, (255, 255, 255))
 
-hud_surface = pygame.surface.Surface((250, 115))
+hud_surface = pygame.surface.Surface((250, 136))
 hud_surface.fill((0, 0, 0))
 hud_surface.set_alpha(128)
 
@@ -66,6 +66,7 @@ while running:
 
         fps_text = font_small.render(f"帧数        {round(clock.get_fps(), 2)}", True, (255, 255, 255))
         count_text = font_small.render(f"进度        {count}/32", True, (255, 255, 255))
+        level_text = font_small.render(f"关卡        {level}", True, (255, 255, 255))
         
         screen.fill((0, 0, 0))
         pygame.draw.circle(screen, (255, 255, 255), ball_pos, 10)
@@ -73,6 +74,7 @@ while running:
         screen.blit(hud_surface, (0, 0))
         screen.blit(fps_text, (10, 10))
         screen.blit(count_text, (10, 52))
+        screen.blit(level_text, (10, 94))
         pygame.display.flip()
 
         clock.tick(FPS)
