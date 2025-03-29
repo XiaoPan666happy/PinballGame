@@ -36,8 +36,8 @@ while running:
                                        SCREEN_H//2-gameover_surface.get_height()//2))
         pygame.display.flip()
     else:
-        ball_pos[0] += ball_move_direction[0]*level
-        ball_pos[1] += ball_move_direction[1]*level
+        ball_pos[0] += ball_move_direction[0]*level*2
+        ball_pos[1] += ball_move_direction[1]*level*2
         # 反弹
         # 下方
         if ball_pos[1]>SCREEN_H:
