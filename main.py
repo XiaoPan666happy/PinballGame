@@ -9,7 +9,7 @@ pygame.init()
 screen = pygame.display.set_mode((SCREEN_W, SCREEN_H))
 clock = pygame.time.Clock()
 ball_pos = [SCREEN_W//2, SCREEN_H//2]
-ball_move_direction = [1, 1]
+ball_move_direction = [-4, 4]
 board_pos = [100, 100]
 
 running = True
@@ -32,6 +32,9 @@ while running:
         ball_move_direction[1] = -ball_move_direction[1]
     # 左侧
     elif ball_pos[0]<0:
+        ball_move_direction[0] = -ball_move_direction[0]
+    # 弹板
+    if (board_pos[0]-10 < ball_pos[0] < board_pos[0]+10) and (board_pos[1] < ball_pos[1] < board_pos[1]+100):
         ball_move_direction[0] = -ball_move_direction[0]
     
     mouse_pos = pygame.mouse.get_pos()
