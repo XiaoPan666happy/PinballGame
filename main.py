@@ -49,8 +49,8 @@ while running:
                                           SCREEN_H-cover_word3_surface.get_height()))
     # 游戏
     elif part == 1:
-        ball_pos[0] += ball_move_direction[0]*level*2
-        ball_pos[1] += ball_move_direction[1]*level*2
+        ball_pos[0] += ball_move_direction[0]*level*4
+        ball_pos[1] += ball_move_direction[1]*level*4
         # 反弹
         # 下方
         if ball_pos[1]>SCREEN_H:
@@ -70,7 +70,7 @@ while running:
             ball_move_direction[0] = -ball_move_direction[0]
             if level < 10:
                 count += 1
-                if count >= 32:
+                if count >= (level*8):
                     level += 1
                     count = 0
         
@@ -78,7 +78,7 @@ while running:
         board_pos[1] = mouse_pos[1]-50
 
         fps_text = font_small.render(f"帧数        {round(clock.get_fps(), 2)}", True, (255, 255, 255))
-        count_text = font_small.render(f"进度        {count}/32", True, (255, 255, 255))
+        count_text = font_small.render(f"进度        {count}/{level*8}", True, (255, 255, 255))
         level_text = font_small.render(f"关卡        {level}", True, (255, 255, 255))
 
         pygame.draw.circle(screen, (255, 255, 255), ball_pos, 10)
