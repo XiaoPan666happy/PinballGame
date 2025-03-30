@@ -25,7 +25,7 @@ clock = pygame.time.Clock()
 level = 1
 count = 0
 ball_pos = [SCREEN_W//2, SCREEN_H//2]
-ball_move_direction = [random.choice((1,-1)), random.choice((1,-1))]
+ball_move_direction = [random.choice((-2,2)), random.choice((-2,2))]
 board_pos = [100, 100]
 part = 0
 
@@ -49,8 +49,8 @@ while running:
                                           SCREEN_H-cover_word3_surface.get_height()))
     # 游戏
     elif part == 1:
-        ball_pos[0] += ball_move_direction[0]*level*4
-        ball_pos[1] += ball_move_direction[1]*level*4
+        ball_pos[0] += ball_move_direction[0]*level
+        ball_pos[1] += ball_move_direction[1]*level
         # 反弹
         # 下方
         if ball_pos[1]>SCREEN_H:
