@@ -1,6 +1,7 @@
 # coding=utf-8
 # file: main.py
 
+import random
 from config import *
 import pygame
 
@@ -20,7 +21,7 @@ clock = pygame.time.Clock()
 level = 1
 count = 0
 ball_pos = [SCREEN_W//2, SCREEN_H//2]
-ball_move_direction = [-1, 1]
+ball_move_direction = [random.choice((1,-1)), random.choice((1,-1))]
 board_pos = [100, 100]
 gameover = False
 
